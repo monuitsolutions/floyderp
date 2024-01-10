@@ -1,0 +1,73 @@
+.grade-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-body);
+    margin-top: 2px;
+    margin-left: 2px;
+    width: 400px;
+    height: 550px;
+    border: 2px solid var(--white);
+    box-shadow: 2px 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.grade-container .user-form {
+    width: 90%;
+    margin: 10px;
+}
+
+.grade-container .user-form form .group {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 10px;
+}
+
+.grade-container .user-form form .group input,
+.grade-container .user-form form .group select {
+    width: 175px;
+    outline-style: none;
+    font-size: 12px;
+}
+
+.grade-container .user-form form .group input[type=submit] {
+    width: 110px;
+    cursor: pointer;
+}
+
+.grade-container .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grade-container .form-container .table-container-user .table-container {
+    width: 100%;
+    height: 375px;
+    overflow: hidden auto;
+}
+
+.grade-container .form-container .table-container-user .head-table-thead {
+    display: grid;
+    grid-template-columns: 50px 130px 160px 150px;
+    border: solid 1px black;
+    background-color: var(--shadow);
+}
+
+.grade-container .form-container .table-container-user .head-table-thead p {
+    border: solid 1px var(--shadow);
+    padding-left: 10px;
+}
+
+.grade-container .form-container .table-container-user .table-container .head-table-tbody {
+    display: grid;
+    grid-template-columns: 50px 130px 160px 150px;
+    border-bottom: solid 1px var(--shadow);
+    width: 100%;
+}
+
+.grade-container .form-container .table-container-user .table-container .head-table-tbody p {
+    padding-left: 10px;
+}
+
+.grade-container .form-container .table-container-user .table-container .head-table-tbody .child-1 {
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+#dragContainer{
+    position: absolute;
+    z-index: 10;
+  }
+  
+  #closeContainer {
+    cursor: move;
+    z-index: 12;
+  }

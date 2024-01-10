@@ -1,0 +1,100 @@
+nav{
+    background-color: var(--background);
+    box-shadow: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+nav .logout{
+    color: var(--white);
+    background-color: var(--background);
+    list-style: none;
+}
+nav .logout a{
+    text-decoration: none;
+    color: var(--white);
+    background-color: rgba(255, 0, 0, 1);
+    padding: 5px 9px;
+}
+nav .list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    list-style: none;
+}
+nav .list-item{
+    border-right: 2px solid var(--main-color);
+    /* position: relative; */
+}
+nav .list .list-item:last-child{
+    border: none;
+}
+nav .list .list-item:last-child ul{
+    min-width: 210px;
+}
+nav .list-item:hover{
+    background-color: var(--main-color)
+}
+nav .list .list-item .item{
+    display: block;
+    text-decoration: none;
+    color: var(--white);
+    padding: 5px 9px;
+}
+nav .list-item ul{
+    display: none;
+    list-style: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: var(--background);
+}
+nav .list-item:hover ul{
+    display: block;
+}
+nav .list-item ul li .item2{
+    display: block;
+    width: 100%;
+    padding: 5px 16px;
+    text-decoration: none;
+    color: var(--white);
+    box-shadow: 0px 10px 45px rgba(0, 0, 0, 0.1);
+}
+nav .list-item ul li .item2:hover{
+    color: var(--background);
+    background-color: var(--white);
+}
+nav .list-item .list2 li{
+    position: relative;
+}
+nav .list-item .list2 li .list3{
+    display: none;
+    min-width: 210px;
+    right: 195px;
+    top: 0px;
+    z-index: 1;
+}
+nav .list-item .list2 li:hover .list3{
+    display: block;
+    box-shadow: 0px 10px 45px rgba(0, 0, 0, 0.1);
+}
+nav .list-item .list2 li .list3 li a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: var(--white);
+    padding: 5px 16px;
+}
+nav .list-item .list2 li .list3 li a:hover{
+    background-color: var(--white);
+    color: var(--background);
+} 
+
+.users{
+    width: 100%;
+    display: flex;
+    border: solid 1px grey;
+    opacity: 0.5;
+    position: fixed;
+    bottom: 0;
+}
