@@ -9,6 +9,11 @@ if($user_name == true) {
     $show_users_data = mysqli_query($con, $users_data);
     if($row = mysqli_fetch_assoc($show_users_data)) {
         $user_id = $row["users_sno"];
+        $sql_validate_data = "SELECT * FROM `stock_item`";
+        $show_query_data = mysqli_query($con, $sql_validate_data);
+        while($stock_item_row = mysqli_fetch_assoc($show_query_data)) {
+            $stock_item_sno = $stock_item_row["stock_item_sno"]+1;
+        }
     }
     // fetch table querys in database
     // stock_item.stock_item_name, unit.unit_name, stock_group.stock_group_name 
@@ -32,7 +37,7 @@ if($user_name == true) {
                 <form action="php_forms_post/add_row_material_post.php" method="post">
                     <div class="group">
                         <label for="sno">S. no.</label>
-                        <input type="text" name="sno" id="sno">
+                        <input type="text" name="sno" id="sno" disabled value="<?php echo $stock_item_sno; ?>">
                         <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
                     </div>
                     <div class="group">

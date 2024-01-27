@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 01:25 PM
+-- Generation Time: Jan 20, 2024 at 12:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,6 +43,44 @@ INSERT INTO `add_group` (`group_sno`, `group_name`, `group_timestamp`, `group_us
 (2, 'dry', '2023-11-30 08:05:08', 1),
 (3, 'raw-material', '2023-11-30 08:31:47', 22),
 (4, 'operator', '2023-11-30 12:17:52', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `add_orders`
+--
+
+CREATE TABLE `add_orders` (
+  `orders_sno` int(11) NOT NULL,
+  `company_name_id` varchar(256) NOT NULL,
+  `po_no` varchar(260) NOT NULL,
+  `po_date` varchar(256) NOT NULL,
+  `article_name_id` int(11) NOT NULL,
+  `order_qty` varchar(256) NOT NULL,
+  `delivery_date` varchar(256) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `add_orders`
+--
+
+INSERT INTO `add_orders` (`orders_sno`, `company_name_id`, `po_no`, `po_date`, `article_name_id`, `order_qty`, `delivery_date`, `timestamp`) VALUES
+(1, '20', 'verbal', '2024-01-18', 1, '10', '2024-01-26', '2024-01-20 08:40:58'),
+(2, '23', '', '2024-01-19', 1, '50', '2024-01-26', '2024-01-20 08:45:20'),
+(3, '25', '', '2024-01-17', 1, '100', '2024-01-27', '2024-01-20 08:45:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dates`
+--
+
+CREATE TABLE `dates` (
+  `sno` int(11) NOT NULL,
+  `dates_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -128,7 +166,8 @@ CREATE TABLE `grade` (
 --
 
 INSERT INTO `grade` (`grade_sno`, `grade_name`, `grade_timestamp`, `grade_users_id`) VALUES
-(1, 'verify ', '2023-11-30 08:05:34', 1);
+(1, 'verify ', '2023-11-30 08:05:34', 1),
+(2, 'aaa', '2024-01-17 08:39:15', 1);
 
 -- --------------------------------------------------------
 
@@ -211,10 +250,8 @@ INSERT INTO `process` (`process_sno`, `process_name`, `process_timestamp`, `proc
 
 CREATE TABLE `qty` (
   `qty_sno` int(11) NOT NULL,
-  `qty_qty` int(11) NOT NULL,
   `qty_timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
-  `qty_qty_id` int(11) NOT NULL,
-  `qty_users_id` int(11) NOT NULL
+  `qty` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -353,6 +390,21 @@ ALTER TABLE `add_group`
   ADD KEY `REFERENCE` (`group_users_id`);
 
 --
+-- Indexes for table `add_orders`
+--
+ALTER TABLE `add_orders`
+  ADD PRIMARY KEY (`orders_sno`),
+  ADD KEY `company_name_id` (`company_name_id`),
+  ADD KEY `article_name_id` (`article_name_id`);
+
+--
+-- Indexes for table `dates`
+--
+ALTER TABLE `dates`
+  ADD PRIMARY KEY (`sno`),
+  ADD KEY `dates_id` (`dates_id`);
+
+--
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
@@ -406,9 +458,7 @@ ALTER TABLE `process`
 -- Indexes for table `qty`
 --
 ALTER TABLE `qty`
-  ADD PRIMARY KEY (`qty_sno`),
-  ADD KEY `users_id` (`qty_users_id`),
-  ADD KEY `qty_id` (`qty_qty_id`);
+  ADD PRIMARY KEY (`qty_sno`);
 
 --
 -- Indexes for table `rs`
@@ -469,6 +519,18 @@ ALTER TABLE `add_group`
   MODIFY `group_sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `add_orders`
+--
+ALTER TABLE `add_orders`
+  MODIFY `orders_sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `dates`
+--
+ALTER TABLE `dates`
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
@@ -484,7 +546,7 @@ ALTER TABLE `fp_ledger`
 -- AUTO_INCREMENT for table `grade`
 --
 ALTER TABLE `grade`
-  MODIFY `grade_sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `grade_sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `images`

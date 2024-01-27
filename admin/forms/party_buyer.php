@@ -9,6 +9,11 @@ if ($user_name == true) {
   if(mysqli_num_rows($show_users_data) > 0) {
     if ($row = mysqli_fetch_assoc($show_users_data)) {
       $user_id = $row["users_sno"];
+      $sql_validate_data = "SELECT * FROM `fp_ledger`";
+      $show_query_data = mysqli_query($con, $sql_validate_data);
+      while($ledger_row = mysqli_fetch_assoc($show_query_data)) {
+          $ledger_sno = $ledger_row["ledger_sno"]+1;
+      }
       
     } else {
       echo "Record not Avalible";
@@ -33,7 +38,7 @@ if ($user_name == true) {
       <form action="php_forms_post/add_party_buyer.php" method="post">
         <div class="group">
           <label for="sno">S. no.</label>
-          <input type="text" id="sno" value="" />
+          <input type="text" id="sno" disabled value="<?php echo $ledger_sno; ?>" />
         </div>
         <div class="group">
           <label for="name">Name</label>

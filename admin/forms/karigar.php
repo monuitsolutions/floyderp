@@ -8,6 +8,11 @@ if($user_name == true) {
     $show_query_data = mysqli_query($con, $validate);
     if($row = mysqli_fetch_assoc($show_query_data)) {
         $user_id = $row["users_sno"];
+        $sql_validate_data = "SELECT * FROM `employee`";
+        $show_query_data = mysqli_query($con, $sql_validate_data);
+        while($employee_row = mysqli_fetch_assoc($show_query_data)) {
+            $employee_sno = $employee_row["employee_sno"]+1;
+        }
     }
 } else {
     header("location : ../../");
@@ -26,7 +31,7 @@ if($user_name == true) {
             <form action="php_forms_post/add_employee_post.php" method="post">
                 <div class="group">
                     <label for="sno">S. no.</label>
-                    <input type="text" name="sno" id="sno">
+                    <input type="text" name="sno" id="sno" disabled value="<?php echo $employee_sno; ?>">
                     <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
                 </div>
                 <div class="group">

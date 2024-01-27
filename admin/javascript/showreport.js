@@ -2,12 +2,11 @@ const showReports = document.getElementById("showReports");
 
 // Adding Users in fill form
 function addUsers() {
-  // console.log("click add Users");
+  console.log("click add Users");
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/users.php", true);
@@ -20,8 +19,7 @@ function addGroup() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/group.php", true);
@@ -33,11 +31,10 @@ function partyMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
-    
+
   xhttp.open("GET", "forms/party_buyer.php", true);
   xhttp.send();
 }
@@ -47,8 +44,7 @@ function supplierMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/supplier.php", true);
@@ -60,8 +56,7 @@ function headMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/stock_group.php", true);
@@ -73,8 +68,7 @@ function unitMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/unit.php", true);
@@ -86,8 +80,7 @@ function materialMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/row_material.php", true);
@@ -99,8 +92,7 @@ function machineMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/machine.php", true);
@@ -112,8 +104,7 @@ function gradeMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/grade.php", true);
@@ -125,8 +116,7 @@ function articleMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/article.php", true);
@@ -138,8 +128,7 @@ function processMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/process.php", true);
@@ -151,8 +140,7 @@ function icMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/ic.php", true);
@@ -164,10 +152,33 @@ function karigarMaster() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("showReports").innerHTML =
-        this.responseText;
+      document.getElementById("showReports").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "forms/karigar.php", true);
+  xhttp.send();
+}
+
+// Adding Orders Master
+function addOrders() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("showReports").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "forms/add_orders.php", true);
+  xhttp.send();
+}
+
+// Editing Orders Master
+function editOrders() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("showReports").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "forms/edit_orders.php", true);
   xhttp.send();
 }

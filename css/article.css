@@ -8,6 +8,7 @@
     height: 550px;
     border: 2px solid var(--white);
     box-shadow: 2px 10px 40px rgba(0, 0, 0, 0.1);
+
 }
 
 .article-container .user-form {

@@ -8,9 +8,15 @@ if ($user_name == true) {
     $show_query_data = mysqli_query($con, $validate);
     if ($row = mysqli_fetch_assoc($show_query_data)) {
         $user_id = $row["users_sno"];
+        $sql_validate_data = "SELECT * FROM `add_group`";
+    $show_query_data = mysqli_query($con, $sql_validate_data);
+    while($group_row = mysqli_fetch_assoc($show_query_data)) {
+        $group_sno = $group_row["group_sno"]+1;
+    }
     } else {
         header("location : ../");
     }
+    
 } else {
     header("location : ../../");
 }
@@ -32,7 +38,7 @@ if ($user_name == true) {
                 </div>
                 <div class="group">
                     <label for="sno">S. no.</label>
-                    <input type="text" name="sno" id="sno">
+                    <input type="text" name="sno" id="sno" disabled value="<?php echo $group_sno; ?>">
                 </div>
                 <div class="group">
                     <input type="submit" value="Add New">
